@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Globe, Package, TrendingUp, Shield, Zap, ArrowRight, Menu, X, Check, BarChart3, FileText, CreditCard, Anchor, Plane, Truck, Ship, Clock, DollarSign, Users, Award, MapPin, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { Globe, Package, Shield, Zap, ArrowRight, Menu, X, Check, BarChart3, FileText, Anchor, Plane, Truck, Ship, Clock, DollarSign, Users, ChevronRight } from 'lucide-react';
 
 const themes = {
   navy: {
@@ -77,7 +77,7 @@ const themes = {
 };
 
 export default function TradePlatformLanding() {
-  const [currentTheme, setCurrentTheme] = useState('navy');
+  const [currentTheme, setCurrentTheme] = useState<keyof typeof themes>('navy');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const theme = themes[currentTheme];
 
