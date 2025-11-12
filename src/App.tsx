@@ -2,15 +2,6 @@ import { useState } from 'react';
 import { Globe, Package, Shield, Zap, ArrowRight, Menu, X, Check, BarChart3, FileText, Anchor, Plane, Truck, Ship, Clock, DollarSign, Users, ChevronRight } from 'lucide-react';
 
 const themes = {
-  navy: {
-    primary: 'bg-[#1e3a8a]',
-    primaryHover: 'hover:bg-[#1e40af]',
-    primaryText: 'text-[#1e3a8a]',
-    gradient: 'from-[#1e3a8a] to-[#3b82f6]',
-    accent: 'bg-[#3b82f6]',
-    light: 'bg-blue-50',
-    name: 'Navy Professional'
-  },
   teal: {
     primary: 'bg-[#0f766e]',
     primaryHover: 'hover:bg-[#115e59]',
@@ -20,64 +11,82 @@ const themes = {
     light: 'bg-teal-50',
     name: 'Teal Corporate'
   },
-  burgundy: {
-    primary: 'bg-[#881337]',
-    primaryHover: 'hover:bg-[#9f1239]',
-    primaryText: 'text-[#881337]',
-    gradient: 'from-[#881337] to-[#be123c]',
-    accent: 'bg-[#be123c]',
-    light: 'bg-rose-50',
-    name: 'Burgundy Executive'
+  sunset: {
+    primary: 'bg-gradient-to-r from-[#ff6b35] to-[#f7931e]',
+    primaryHover: 'hover:from-[#e55a2b] hover:to-[#de7f0a]',
+    primaryText: 'text-[#ff6b35]',
+    gradient: 'from-[#ff6b35] via-[#f7931e] to-[#ffb347]',
+    accent: 'bg-[#f7931e]',
+    light: 'bg-orange-50',
+    name: '🌅 Sunset Vibes'
   },
-  charcoal: {
-    primary: 'bg-[#374151]',
-    primaryHover: 'hover:bg-[#1f2937]',
-    primaryText: 'text-[#374151]',
-    gradient: 'from-[#374151] to-[#6b7280]',
-    accent: 'bg-[#6b7280]',
-    light: 'bg-gray-50',
-    name: 'Charcoal Modern'
+  cosmic: {
+    primary: 'bg-gradient-to-r from-[#667eea] to-[#764ba2]',
+    primaryHover: 'hover:from-[#5a6fd8] hover:to-[#6a4190]',
+    primaryText: 'text-[#667eea]',
+    gradient: 'from-[#667eea] via-[#764ba2] to-[#f093fb]',
+    accent: 'bg-[#764ba2]',
+    light: 'bg-purple-50',
+    name: '🌌 Cosmic Purple'
   },
-  olive: {
-    primary: 'bg-[#65a30d]',
-    primaryHover: 'hover:bg-[#4d7c0f]',
-    primaryText: 'text-[#65a30d]',
-    gradient: 'from-[#65a30d] to-[#84cc16]',
-    accent: 'bg-[#84cc16]',
-    light: 'bg-lime-50',
-    name: 'Olive Business'
+  ocean: {
+    primary: 'bg-gradient-to-r from-[#2193b0] to-[#6dd5ed]',
+    primaryHover: 'hover:from-[#1e7a8c] hover:to-[#5bc0d9]',
+    primaryText: 'text-[#2193b0]',
+    gradient: 'from-[#2193b0] via-[#6dd5ed] to-[#a8e6cf]',
+    accent: 'bg-[#6dd5ed]',
+    light: 'bg-cyan-50',
+    name: '🌊 Ocean Breeze'
   },
-  indigo: {
-    primary: 'bg-[#4338ca]',
-    primaryHover: 'hover:bg-[#3730a3]',
-    primaryText: 'text-[#4338ca]',
-    gradient: 'from-[#4338ca] to-[#6366f1]',
-    accent: 'bg-[#6366f1]',
-    light: 'bg-indigo-50',
-    name: 'Indigo Tech'
+  neon: {
+    primary: 'bg-gradient-to-r from-[#00f5ff] to-[#00d4aa]',
+    primaryHover: 'hover:from-[#00d9e6] hover:to-[#00b894]',
+    primaryText: 'text-[#00f5ff]',
+    gradient: 'from-[#00f5ff] via-[#00d4aa] to-[#55efc4]',
+    accent: 'bg-[#00d4aa]',
+    light: 'bg-emerald-50',
+    name: '⚡ Neon Glow'
   },
-  slate: {
-    primary: 'bg-[#475569]',
-    primaryHover: 'hover:bg-[#334155]',
-    primaryText: 'text-[#475569]',
-    gradient: 'from-[#475569] to-[#64748b]',
-    accent: 'bg-[#64748b]',
-    light: 'bg-slate-50',
-    name: 'Slate Premium'
+  royal: {
+    primary: 'bg-gradient-to-r from-[#8e2de2] to-[#4a00e0]',
+    primaryHover: 'hover:from-[#7c25c4] hover:to-[#3d00b8]',
+    primaryText: 'text-[#8e2de2]',
+    gradient: 'from-[#8e2de2] via-[#4a00e0] to-[#667eea]',
+    accent: 'bg-[#4a00e0]',
+    light: 'bg-violet-50',
+    name: '👑 Royal Majesty'
   },
-  forest: {
-    primary: 'bg-[#166534]',
-    primaryHover: 'hover:bg-[#14532d]',
-    primaryText: 'text-[#166534]',
-    gradient: 'from-[#166534] to-[#22c55e]',
-    accent: 'bg-[#22c55e]',
+  fire: {
+    primary: 'bg-gradient-to-r from-[#ff416c] to-[#ff4b2b]',
+    primaryHover: 'hover:from-[#e6395f] hover:to-[#e6421f]',
+    primaryText: 'text-[#ff416c]',
+    gradient: 'from-[#ff416c] via-[#ff4b2b] to-[#ff6b6b]',
+    accent: 'bg-[#ff4b2b]',
+    light: 'bg-red-50',
+    name: '🔥 Fire Energy'
+  },
+  mint: {
+    primary: 'bg-gradient-to-r from-[#00b09b] to-[#96c93d]',
+    primaryHover: 'hover:from-[#009688] hover:to-[#7fb32d]',
+    primaryText: 'text-[#00b09b]',
+    gradient: 'from-[#00b09b] via-[#96c93d] to-[#a8e6cf]',
+    accent: 'bg-[#96c93d]',
     light: 'bg-green-50',
-    name: 'Forest Sustainable'
+    name: '🌿 Fresh Mint'
+  },
+  galaxy: {
+    primary: 'bg-gradient-to-r from-[#2c3e50] to-[#fd746c]',
+    primaryHover: 'hover:from-[#243342] hover:to-[#e4685d]',
+    primaryText: 'text-[#2c3e50]',
+    gradient: 'from-[#2c3e50] via-[#4b79a1] to-[#fd746c]',
+    accent: 'bg-[#fd746c]',
+    light: 'bg-slate-50',
+    name: '🌟 Galaxy Dream'
   }
 };
 
 export default function TradePlatformLanding() {
-  const [currentTheme, setCurrentTheme] = useState<keyof typeof themes>('navy');
+  const [currentTheme, setCurrentTheme] = useState<keyof typeof themes>('teal');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const theme = themes[currentTheme];
 
