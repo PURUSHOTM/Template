@@ -251,7 +251,7 @@ export default function TradePlatformLanding() {
           {Object.entries(themes).map(([key, t]) => (
             <button
               key={key}
-              onClick={() => setCurrentTheme(key)}
+              onClick={() => setCurrentTheme(key as keyof typeof themes)}
               className={`w-10 h-10 rounded-lg ${t.primary} ${currentTheme === key ? 'ring-2 ring-offset-2 ring-gray-400 scale-110' : 'hover:scale-105'} transition-transform`}
               title={t.name}
             />
